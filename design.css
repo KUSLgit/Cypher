@@ -1,5 +1,6 @@
 body { 
     background-color: #112;
+    background-color: aquamarine;
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
@@ -16,7 +17,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 #inp1, #inp2, svg {
     width: 300px;
     height: 30px;
@@ -25,44 +25,83 @@ body {
     /* margin: 10px; */
     font-size: 20px;
     padding: 12px;
-    color: #ffffffd7;
+    color: #000000d7;
     background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(66, 66, 66, 0.2);
     backdrop-filter: blur(10px);
     box-shadow: none;
     border: 2px solid rgba(255, 255, 255, 0.1);
-    
+    border: 2px dashed #000;
+}
+#inp1, #inp2 {
+    padding-left: 20px;
+    position: absolute;
+    /* left: 10px; */
 }
 
 svg {
     width: 30px;
     height: 30px;     
-    position: absolute;
-    background-color: none;
+    position: relative;
+    background-color: transparent;
     border: none;
+    /* opacity: 0.5; */
 }
 
 svg:hover {
     stroke: rgba(255, 255, 255, 0.3);
+    opacity: 1;
 }   
 
-#inp1::placeholder, #inp2::placeholder {
-    color: rgba(255, 255, 255, 0.2);
+input::placeholder {
+    color: transparent;
+    position: relative;
 }
 
-#inp1::selection, #inp2::selection {
+
+input::selection {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-#inp1:focus::placeholder, #inp2:focus::placeholder {
+label {
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    flex-grow: 1;
+    /* border: 1px solid #ffffff; */
+    text-align: left;
+    z-index: 9;
+    padding-left: 20px;
+    color: #333;
+    /* color: transparent; */
+    /* align-self: flex-start; */
+    /* justify-self: flex-end; */
+}
+
+
+
+label {
+    transition: top 0.2s ease-in-out;
+}
+
+input:focus + label, input:not(:placeholder-shown) + label{
+    top: -25px;
+    left: -10px;
+    color: #000;
+    background-color: aquamarine;
+    /* padding-left: 20px; */
+}
+
+/* #inp1:focus::placeholder, #inp2:focus::placeholder {
     color: rgba(255, 255, 255, 0.4);
-}
+    color: rgba(0, 0, 0, 0.3);
+    top: -25px;
+} */
 
-#inp1:focus, #inp2:focus {
-    background-color: rgba(31, 38, 135, 0.096);
-    box-shadow: 0 0 32px 2px rgba(31, 38, 135, 0.37);
-    border: 2px solid rgba(255, 255, 255, 0.555);
-}
-
+/* #inp1:focus, #inp2:focus {
+    background-color: rgba(31, 38, 135, 0.096); 
+    box-shadow: 0 0 32px 2px rgba(31, 38, 135, 0.37); 
+    border: 2px solid rgba(255, 255, 255, 0.555); 
+} */
 
 /* input:(focus) {
     border: 2px solid rgb(255, 255, 255);
@@ -70,15 +109,14 @@ svg:hover {
 } */
 
 
-svg {
+/* svg {
     background: black;
-    /* fill: currentColor; */
     stroke: none;
     border: none;
     outline: none;
     background-color: transparent;
 }
-
+ */
 
 #balls {
     width: 30px;
@@ -95,18 +133,39 @@ h1 {
     margin-top: 20px;
 }
 
-#result {
+.encrypt {
     font-size: 24px;
     margin-top: 20px;
 }
+.decrypt {
+    font: 1em sans-serif;
+    margin: 20px;
+}
 
-.inpCont {
+.inpCont, #btnCont {
     display: flex;
     /* flex-direction: column; */
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     position: relative;
-    gap: 10px;
+    /* gap: 10px; */
     height: 70px;
+    width: 330px;
     /* border: 1px solid #ffffff; */
 }
+
+
+
+button {
+    background-color: rgba(0, 0, 0, 0.185);
+    color: #000000d7;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
